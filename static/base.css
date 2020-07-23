@@ -2821,16 +2821,18 @@ body.is-menu-visible #menu {
   box-shadow: 0 0 1.5rem 0 rgba(0, 0, 0, 0.2);
   visibility: visible; }
 
+nav {
+  display: flex;
+  justify-content: center;
+}
+      
 .pagination {
-  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
 }
-
-.pagination a {
-  color: black;
-  float: left;
-  text-decoration: none;
-}
-
-.active {
-  width: 8rem;
+      
+.pagination li {
+  margin: 0 1px;
 }

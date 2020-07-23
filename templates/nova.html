@@ -52,6 +52,7 @@
   </table>
 
   {% if tbl_nova.has_other_pages %}
+  <nav aria-label="pagination">
   <ul class="pagination">
     {% if tbl_nova.has_previous %}
       <li class="pagination"><a href="?page={{ tbl_nova.previous_page_number }}">&laquo;</a></li>
@@ -71,6 +72,7 @@
       <li class="disabled pagination"><span>&raquo;</span></li>
     {% endif %}
   </ul>
+  </nav>
 {% endif %}
 
 </body>
