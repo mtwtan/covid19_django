@@ -23,6 +23,33 @@
     <img src="/nova/plt_nova_changedeath_view" alt="Daily deaths" width=500 height=auto />
   </p>
 
-  <p>{{ df | safe }}</p>
+  <!--<p>{{ df | safe }}</p>-->
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>date</th>
+        <th>County</th>
+        <th>Confirmed Cases</th>
+        <th>Deaths</th>
+        <th>Daily Change</th>
+        <th>Daily Change - Deaths</th>
+      </tr>
+    </thead>
+    {% for row_nova in tbl_nova %}
+    <tr>
+      <td>{% row_nova.date %}</td>
+      <td>{% row_nova.county %}</td>
+      <td>{% row_nova.numconfirmed %}</td>
+      <td>{% row_nova.numdeaths %}</td>
+      <td>{% row_nova.change %}</td>
+      <td>{% row_nova.changedeaths %}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+
+    </tr>
+  </table>
+
 </body>
 </html>

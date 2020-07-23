@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-#from django.views.generic.base import View
 from django.template import Context, Template
 from django.template.response import TemplateResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 # Create your views here.
 from io import BytesIO
@@ -24,11 +24,23 @@ days = mdates.DayLocator(interval=5) # every day
 month_fmt = mdates.DateFormatter('%m-%y')
 day_fmt = mdates.DateFormatter('%d')
 
-df_nova = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().values()))
+nova = DmvMovingAverage.objects.using('data').all().values()
+
+df_nova = pd.DataFrame(list(nova))
 df_nova['date'] = pd.to_datetime(df_nova['date'])
 df_index = df_nova.index
 num_rows = len(df_index)
 max_index = num_rows - 1
+
+rows_per_page = 10
+remainder = num_rows % rows_per_page
+page_base = num_rows // rows_per_page
+
+if remainder > 0:
+  page_num = page_base + 1
+else:
+  page_num = page_base
+
 
 def test_view(request):
   # Create a new Matplotlib figure
@@ -207,7 +219,19 @@ def df_covid19():
   return df_html
 
 def index(request):
-  df = tbl_fairfax_view()
+  page = request.GET.get('page', 1)
+
+  paginator = Paginator(nova, page_num)
+  
+  try:
+    tbl_nova = paginator.page(page)
+  except PageNotAnInteger:
+    tbl_nova = paginator.page(1)
+  except EmptyPage:
+    tbl_nova = paginator.page(paginator.num_pages)
+
+#  df = tbl_fairfax_view()
   args = {}
-  args['df'] = df
+  args['df'] = tbl_nova
+
   return render(request, "nova.html", args )
