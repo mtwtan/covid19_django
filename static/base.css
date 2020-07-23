@@ -2834,6 +2834,14 @@ nav .pagination {
 }
       
 nav .pagination li {
-  margin: 0 1px;
-  padding: 1px;
+  margin: 0 1rem;
+  padding: 2rem;
+}
+
+nav .pagination li a {
+  text-decoration: none;
+}
+
+nav .pagination li a:hover {
+  text-decoration: underline;
 }
