@@ -223,9 +223,10 @@ def index(request):
   filterby = request.GET.get('filterby', "")
 
   if filterby != "":
-    nova = DmvMovingAverage.objects.using('data').filter(county=filterby).order_by('county', 'date').values()
-
-  paginator = Paginator(nova, rows_per_page)
+    novaf = DmvMovingAverage.objects.using('data').filter(county=filterby).order_by('county', 'date').values()
+    paginator = Paginator(novaf, rows_per_page)
+  else:
+    paginator = Paginator(nova, rows_per_page)
   
   try:
     tbl_nova = paginator.page(page)
