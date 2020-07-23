@@ -24,6 +24,12 @@ days = mdates.DayLocator(interval=5) # every day
 month_fmt = mdates.DateFormatter('%m-%y')
 day_fmt = mdates.DateFormatter('%d')
 
+df_nova = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().values()))
+df_nova['date'] = pd.to_datetime(df_nova['date'])
+df_index = df_nova.index
+num_rows = len(df_index)
+max_index = num_rows - 1
+
 def test_view(request):
   # Create a new Matplotlib figure
   fig, ax = plt.subplots()
@@ -47,11 +53,6 @@ def test_view(request):
   return response
 
 def plt_nova_view(request):
-  df_nova = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().values()))
-  df_nova['date'] = pd.to_datetime(df_nova['date'])
-  df_index = df_nova.index
-  num_rows = len(df_index)
-  max_index = num_rows - 1
 
   fig, ax = plt.subplots()
   ax.set_title('Confirmed Cases')
@@ -87,11 +88,11 @@ def plt_nova_view(request):
   return response
 
 def plt_nova_movingavg_view(request):
-  df_nova = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().values()))
-  df_nova['date'] = pd.to_datetime(df_nova['date'])
-  df_index = df_nova.index
-  num_rows = len(df_index)
-  max_index = num_rows - 1
+#  df_nova = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().values()))
+#  df_nova['date'] = pd.to_datetime(df_nova['date'])
+#  df_index = df_nova.index
+#  num_rows = len(df_index)
+#  max_index = num_rows - 1
 
   fig, ax = plt.subplots()
   ax.set_title('7 days Moving Average')
@@ -127,11 +128,11 @@ def plt_nova_movingavg_view(request):
   return response
 
 def plt_nova_casechange_view(request):
-  df_nova = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().values()))
-  df_nova['date'] = pd.to_datetime(df_nova['date'])
-  df_index = df_nova.index
-  num_rows = len(df_index)
-  max_index = num_rows - 1
+#  df_nova = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().values()))
+#  df_nova['date'] = pd.to_datetime(df_nova['date'])
+#  df_index = df_nova.index
+#  num_rows = len(df_index)
+#  max_index = num_rows - 1
 
   fig, ax = plt.subplots()
   ax.set_title('Case Change')
