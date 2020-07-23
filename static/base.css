@@ -2823,7 +2823,8 @@ body.is-menu-visible #menu {
 
 nav {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  margin-bottom: 1rem;
 }
       
 nav .pagination {
