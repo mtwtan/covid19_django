@@ -220,6 +220,10 @@ def df_covid19():
 
 def index(request):
   page = request.GET.get('page', 1)
+  filterby = request.GET.get('filterby', "")
+
+  if filterby != "":
+    nova = nova = DmvMovingAverage.objects.using('data').filter(county=filterby).order_by('county', 'date').values()
 
   paginator = Paginator(nova, rows_per_page)
   
