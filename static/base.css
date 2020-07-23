@@ -2832,6 +2832,6 @@ body.is-menu-visible #menu {
   text-decoration: none;
 }
 
-li.active {
-  width: 4rem;
+.active {
+  width: 8rem;
 }
