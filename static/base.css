@@ -2834,8 +2834,8 @@ nav .pagination {
 }
       
 nav .pagination li {
-  margin: 0 1rem;
-  padding: 2rem;
+  margin: 0 0.3rem;
+  padding: 0.3rem;
 }
 
 nav .pagination li a {
