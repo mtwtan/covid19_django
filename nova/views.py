@@ -32,14 +32,14 @@ df_index = df_nova.index
 num_rows = len(df_index)
 max_index = num_rows - 1
 
-rows_per_page = 10
-remainder = num_rows % rows_per_page
-page_base = num_rows // rows_per_page
+rows_per_page = 30
+#remainder = num_rows % rows_per_page
+#page_base = num_rows // rows_per_page
 
-if remainder > 0:
-  page_num = page_base + 1
-else:
-  page_num = page_base
+#if remainder > 0:
+#  page_num = page_base + 1
+#else:
+#  page_num = page_base
 
 
 def test_view(request):
