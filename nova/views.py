@@ -232,6 +232,6 @@ def index(request):
 
 #  df = tbl_fairfax_view()
   args = {}
-  args['df'] = tbl_nova
+  args['tbl_nova'] = tbl_nova
 
   return render(request, "nova.html", args )
