@@ -51,5 +51,27 @@
     </tr>
   </table>
 
+  {% if tbl_nova.has_other_pages %}
+  <ul class="pagination">
+    {% if tbl_nova.has_previous %}
+      <li><a href="?page={{ tbl_nova.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in tbl_nova.paginator.page_range %}
+      {% if tbl_nova.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if tbl_nova.has_next %}
+      <li><a href="?page={{ tbl_nova.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
 </body>
 </html>
