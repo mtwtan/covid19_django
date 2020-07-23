@@ -2831,3 +2831,7 @@ body.is-menu-visible #menu {
   padding: 8px 16px;
   text-decoration: none;
 }
+
+li.active {
+  width: 4rem;
+}
