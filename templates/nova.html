@@ -24,6 +24,29 @@
   </p>
 
   <!--<p>{{ df | safe }}</p>-->
+{% if tbl_nova.has_other_pages %}
+  <nav aria-label="pagination">
+  <ul class="pagination">
+    {% if tbl_nova.has_previous %}
+      <li class="pagination"><a href="?page={{ tbl_nova.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled pagination"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in tbl_nova.paginator.page_range %}
+      {% if tbl_nova.number == i %}
+        <li class="active pagination"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li class="pagination"><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if tbl_nova.has_next %}
+      <li class="pagination"><a href="?page={{ tbl_nova.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled pagination"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+  </nav>
+{% endif %}
 
   <table class="table table-bordered">
     <thead>
@@ -51,29 +74,6 @@
     </tr>
   </table>
 
-  {% if tbl_nova.has_other_pages %}
-  <nav aria-label="pagination">
-  <ul class="pagination">
-    {% if tbl_nova.has_previous %}
-      <li class="pagination"><a href="?page={{ tbl_nova.previous_page_number }}">&laquo;</a></li>
-    {% else %}
-      <li class="disabled pagination"><span>&laquo;</span></li>
-    {% endif %}
-    {% for i in tbl_nova.paginator.page_range %}
-      {% if tbl_nova.number == i %}
-        <li class="active pagination"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
-      {% else %}
-        <li class="pagination"><a href="?page={{ i }}">{{ i }}</a></li>
-      {% endif %}
-    {% endfor %}
-    {% if tbl_nova.has_next %}
-      <li class="pagination"><a href="?page={{ tbl_nova.next_page_number }}">&raquo;</a></li>
-    {% else %}
-      <li class="disabled pagination"><span>&raquo;</span></li>
-    {% endif %}
-  </ul>
-  </nav>
-{% endif %}
 
 </body>
 </html>
