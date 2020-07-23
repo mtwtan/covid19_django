@@ -24,7 +24,7 @@ days = mdates.DayLocator(interval=5) # every day
 month_fmt = mdates.DateFormatter('%m-%y')
 day_fmt = mdates.DateFormatter('%d')
 
-nova = DmvMovingAverage.objects.using('data').all().values()
+nova = DmvMovingAverage.objects.using('data').all().order_by('county', 'date').values()
 
 df_nova = pd.DataFrame(list(nova))
 df_nova['date'] = pd.to_datetime(df_nova['date'])
