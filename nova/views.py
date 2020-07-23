@@ -221,7 +221,7 @@ def df_covid19():
 def index(request):
   page = request.GET.get('page', 1)
 
-  paginator = Paginator(nova, page_num)
+  paginator = Paginator(nova, rows_per_page)
   
   try:
     tbl_nova = paginator.page(page)
