@@ -38,12 +38,12 @@
     </thead>
     {% for row_nova in tbl_nova %}
     <tr>
-      <td>{% row_nova.date %}</td>
-      <td>{% row_nova.county %}</td>
-      <td>{% row_nova.numconfirmed %}</td>
-      <td>{% row_nova.numdeaths %}</td>
-      <td>{% row_nova.change %}</td>
-      <td>{% row_nova.changedeaths %}</td>
+      <td>{{ row_nova.date }}</td>
+      <td>{{ row_nova.county }}</td>
+      <td>{{ row_nova.numconfirmed }}</td>
+      <td>{{ row_nova.numdeaths }}</td>
+      <td>{{ row_nova.change }}</td>
+      <td>{{ row_nova.changedeaths }}</td>
     </tr>
     {% endfor %}
     <tr>
