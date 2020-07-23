@@ -182,4 +182,3 @@ def index(request):
   args = {}
   args['df'] = df
   return render(request, "nova.html", args )
-
