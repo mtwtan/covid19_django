@@ -13,7 +13,6 @@
 </head>
 
 <body>
-  <!-- <script src="/static/scripts.js"></script> -->
   <script type="text/javascript">
     function goSelectFilter(page) {
       var e = document.getElementById("id_county");
@@ -31,10 +30,6 @@
     <img src="/nova/plt_nova_changedeath_view" alt="Daily deaths" width=500 height=auto />
   </p>
 
-  <p>Filter By: {{ filterby }}</p>
-  <p>Filterby code: {{ filterbycode }}</p>
-
-  <!--<p>{{ df | safe }}</p>-->
 {% if tbl_nova.has_other_pages %}
   <nav aria-label="pagination">
   <ul class="pagination">
