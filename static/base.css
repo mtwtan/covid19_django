@@ -191,6 +191,10 @@ nav .pagination li a:hover {
   text-decoration: underline;
 }
 
+form {
+  margin: 10px;
+}
+
 form ul li {
   display: inline;
 }
@@ -200,7 +204,8 @@ table {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   border-spacing: 0;
-  width: 100%;
+  width: 80%;
+  margin: 10px;
 }
 
 tbody {
