@@ -11,7 +11,7 @@ COUNTY =(
 
 def get_counties():
   counties = ()
-  for county in Counties.objects.using('data').all()):
+  for county in Counties.objects.using('data').all():
     counties = counties + ((county.data, county.data),)
   return counties
 class FilterByCountyForm(forms.Form):
