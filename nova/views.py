@@ -243,9 +243,6 @@ def index(request):
 #  df = tbl_fairfax_view()
   args = {}
   args['tbl_nova'] = tbl_nova
-
-  if form.is_valid():
-    instance = form.save()
-    args['form'] = form
+  args['form'] = form
 
   return render(request, "nova.html", args )
