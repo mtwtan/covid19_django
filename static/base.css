@@ -194,3 +194,30 @@ nav .pagination li a:hover {
 form ul li {
   display: inline;
 }
+
+table {
+  font-size: 16px;
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
+
+th {
+  padding-top: 11px;
+  padding-bottom: 11px;
+  background-color: #4CAF50;
+  color: white;
+}
+
+td {
+  border: 1px solid #ddd;
+  text-align: left;
+  padding: 8px;
+}
