@@ -55,7 +55,7 @@
   {% csrf_token %}    
   <ul>
   {{ form.as_ul }}
-  <li><input type="submit" value="Filter" class="btn btn-md btn-secondary"></li>
+  <li><input type="button" value="Filter" class="btn btn-md btn-secondary" onclick="window.location.href='?page={{ currentpage }}'"></li>
   </ul>
 </form>
 

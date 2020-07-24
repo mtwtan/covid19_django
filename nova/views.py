@@ -248,5 +248,6 @@ def index(request):
   args['form'] = form
   args['filterby'] = filterby
   args['filterbycode'] = filterbycode
+  args['currentpage'] = page
 
   return render(request, "nova.html", args )
