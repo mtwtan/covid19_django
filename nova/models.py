@@ -8,6 +8,15 @@
 from django.db import models
 
 
+class Counties(models.Model):
+    county = models.CharField(max_length=100)
+    state = models.CharField(max_length=2)
+
+    class Meta:
+        managed = False
+        db_table = 'counties'
+
+
 class DmvMovingAverage(models.Model):
     date = models.TextField(blank=True, null=True)
     county = models.TextField(blank=True, null=True)
