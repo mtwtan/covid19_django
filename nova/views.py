@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.template import Context, Template
 from django.template.response import TemplateResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from .forms import FilterByCountyForm
 
 # Create your views here.
 from io import BytesIO
@@ -234,9 +235,17 @@ def index(request):
     tbl_nova = paginator.page(1)
   except EmptyPage:
     tbl_nova = paginator.page(paginator.num_pages)
+  
+  form = FilterByCountyForm(request.POST or None)
+
+    
 
 #  df = tbl_fairfax_view()
   args = {}
   args['tbl_nova'] = tbl_nova
+
+  if form.is_valid():
+    instance = form.save()
+    args['form'] = form
 
   return render(request, "nova.html", args )

@@ -1,4 +1,5 @@
 from django import forms
-
+from .models import Counties
+from django.forms import ModelChoiceField
 class FilterByCountyForm(forms.Form):
-  county = forms.ChoiceField(help_text="Select county to filter.")
+  county = forms.ModelChoiceField(queryset=Counties.objects.all(),empty_label="Select County",to_field_name="county",help_text="Select county to filter.")
