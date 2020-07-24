@@ -227,7 +227,7 @@ def index(request):
   if filterby != "":
     novaf = DmvMovingAverage.objects.using('data').filter(county=filterby).order_by('county', 'date').values()
     paginator = Paginator(novaf, rows_per_page)
-    filterbycode = "filterby=" + filterby
+    filterbycode = "&filterby=" + filterby
   else:
     paginator = Paginator(nova, rows_per_page)
   
