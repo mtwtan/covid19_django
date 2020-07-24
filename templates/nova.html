@@ -55,10 +55,9 @@
   {% csrf_token %}    
   <ul>
   {{ form.as_ul }}
-  <li><input id="btn_filter" type="button" value="Filter" class="btn btn-md btn-secondary" onclick="window.location.href='?page={{ currentpage }}'"></li>
+  <li><input id="btn_filter" type="button" value="Filter" class="btn btn-md btn-secondary" onclick="window.location.href='?page={{ currentpage }}&filterby='+document.getElementById("id_county").options[e.selectedIndex].value"></li>
   </ul>
 </form>
-
 
   <table class="table table-bordered">
     <thead>
