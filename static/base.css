@@ -2847,6 +2847,6 @@ nav .pagination li a:hover {
   text-decoration: underline;
 }
 
-form li {
+form ul {
   display: inline;
 }

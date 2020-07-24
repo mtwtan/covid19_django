@@ -50,8 +50,10 @@
 
 <form method="POST" enctype="multipart/form-data">
   {% csrf_token %}    
+  <ul>
   {{ form.as_ul }}
   <li><input type="submit" value="Filter" class="btn btn-md btn-secondary"></li>
+  </ul>
 </form>
 
 
