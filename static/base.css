@@ -2846,3 +2846,7 @@ nav .pagination li a {
 nav .pagination li a:hover {
   text-decoration: underline;
 }
+
+select {
+  width: none;
+}
