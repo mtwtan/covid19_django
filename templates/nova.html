@@ -23,6 +23,7 @@
     <img src="/nova/plt_nova_changedeath_view" alt="Daily deaths" width=500 height=auto />
   </p>
 
+  <p>Filter By: {{ filterby }}</p>
   <!--<p>{{ df | safe }}</p>-->
 {% if tbl_nova.has_other_pages %}
   <nav aria-label="pagination">
@@ -60,7 +61,7 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th>date</th>
+        <th>Date</th>
         <th>County</th>
         <th>Confirmed Cases</th>
         <th>Deaths</th>

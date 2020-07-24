@@ -244,5 +244,6 @@ def index(request):
   args = {}
   args['tbl_nova'] = tbl_nova
   args['form'] = form
+  args['filterby'] = filterby
 
   return render(request, "nova.html", args )
