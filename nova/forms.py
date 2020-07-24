@@ -12,7 +12,7 @@ COUNTY =(
 def get_counties():
   counties = ()
   for county in Counties.objects.using('data').all():
-    counties = counties + ((county.data, county.data),)
+    counties = counties + ((county.county, county.county),)
   return counties
 class FilterByCountyForm(forms.Form):
   #county = forms.ModelChoiceField(queryset=Counties.objects.using('data').values_list('county'))
