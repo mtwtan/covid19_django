@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'firstsite.apps.FirstsiteConfig',
     'testplot.apps.TestplotConfig',
+    'nova.apps.NovaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
