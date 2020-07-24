@@ -6,7 +6,7 @@ COUNTY =(
     ("Arlington", "Arlington"), 
     ("District of Columbia", "District of Columbia"), 
     ("Fairfax", "Fairfax"), 
-    ("Montgomery", "Montgomery"), , 
+    ("Montgomery", "Montgomery"),
 ) 
 
 class FilterByCountyForm(forms.Form):
