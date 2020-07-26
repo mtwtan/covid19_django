@@ -108,7 +108,7 @@ def plt_nova_movingavg_view(request):
 #  max_index = num_rows - 1
 
   fig, ax = plt.subplots()
-  ax.set_title('7 days Moving Average')
+  ax.set_title('7 days Moving Average - Confirmed Cases')
   ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'Fairfax'], label="Fairfax")
   ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
   ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
@@ -208,6 +208,40 @@ def plt_nova_changedeath_view(request):
   fig_buffer.close()
 
   return response
+
+def plt_nova_movingavg_deaths_view(request):
+
+  fig, ax = plt.subplots()
+  ax.set_title('7 days Moving Average - Confirmed Cases')
+  ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Fairfax'], label="Fairfax")
+  ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
+  ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
+  ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Montgomery'], label="Montgomery")
+
+  ax.xaxis.set_major_locator(months)
+  ax.xaxis.set_major_formatter(month_fmt)
+  ax.xaxis.set_minor_locator(days)
+
+#  # round to nearest months
+  datemin = np.datetime64(df_nova['date'][0], 'D')
+#  datemax = np.datetime64(df_fairfax['date'][-1], 'D') + np.timedelta64(15, 'D')
+  datemax = np.datetime64(df_nova['date'][max_index], 'D')
+  ax.set_xlim(datemin, datemax)
+
+  plt.tight_layout()
+  plt.text
+  plt.legend()
+  fig_buffer = BytesIO()
+  plt.savefig(fig_buffer, format='png', dpi=150)
+
+  # Save the figure as a HttpPesponse
+  response = HttpResponse(content_type='image/png')
+  response.write(fig_buffer.getvalue())
+
+  fig_buffer.close()
+
+  return response
+
 
 def tbl_fairfax_view():
   df_fairfax = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().order_by('county','date').values()))
