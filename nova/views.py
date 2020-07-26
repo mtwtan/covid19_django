@@ -74,6 +74,8 @@ def plt_nova_view(request):
   ax.plot('date', 'numconfirmed', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
   ax.plot('date', 'numconfirmed', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
   ax.plot('date', 'numconfirmed', data=df_nova.loc[df_nova['county'] == 'Montgomery'], label="Montgomery")
+  ax.plot('date', 'numconfirmed', data=df_nova.loc[df_nova['county'] == 'Loudoun'], label="Loudoun")
+  ax.plot('date', 'numconfirmed', data=df_nova.loc[df_nova['county'] == 'Alexandria'], label="Alexandria")
 
   ax.xaxis.set_major_locator(months)
   ax.xaxis.set_major_formatter(month_fmt)
@@ -114,6 +116,8 @@ def plt_nova_movingavg_view(request):
   ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
   ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
   ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'Montgomery'], label="Montgomery")
+  ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'Loudoun'], label="Loudoun")
+  ax.plot('date', 'movingaverage', data=df_nova.loc[df_nova['county'] == 'Alexandria'], label="Alexandria")
 
   ax.xaxis.set_major_locator(months)
   ax.xaxis.set_major_formatter(month_fmt)
@@ -152,6 +156,8 @@ def plt_nova_casechange_view(request):
   ax.plot('date', 'change', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
   ax.plot('date', 'change', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
   ax.plot('date', 'change', data=df_nova.loc[df_nova['county'] == 'Montgomery'], label="Montgomery")
+  ax.plot('date', 'change', data=df_nova.loc[df_nova['county'] == 'Loudoun'], label="Loudoun")
+  ax.plot('date', 'change', data=df_nova.loc[df_nova['county'] == 'Alexandria'], label="Alexandria")
 
   ax.xaxis.set_major_locator(months)
   ax.xaxis.set_major_formatter(month_fmt)
@@ -185,6 +191,8 @@ def plt_nova_changedeath_view(request):
   ax.plot('date', 'changedeaths', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
   ax.plot('date', 'changedeaths', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
   ax.plot('date', 'changedeaths', data=df_nova.loc[df_nova['county'] == 'Montgomery'], label="Montgomery")
+  ax.plot('date', 'changedeaths', data=df_nova.loc[df_nova['county'] == 'Loudoun'], label="Loudoun")
+  ax.plot('date', 'changedeaths', data=df_nova.loc[df_nova['county'] == 'Alexandria'], label="Alexandria")
 
   ax.xaxis.set_major_locator(months)
   ax.xaxis.set_major_formatter(month_fmt)
@@ -218,6 +226,8 @@ def plt_nova_movingavg_deaths_view(request):
   ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
   ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
   ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Montgomery'], label="Montgomery")
+  ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Loudoun'], label="Loudoun")
+  ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Alexandria'], label="Alexandria")
 
   ax.xaxis.set_major_locator(months)
   ax.xaxis.set_major_formatter(month_fmt)
