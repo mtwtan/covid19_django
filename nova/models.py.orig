@@ -27,7 +27,6 @@ class DmvMovingAverage(models.Model):
     daybeforedeaths = models.BigIntegerField(db_column='dayBeforeDeaths', blank=True, null=True)  # Field name made lowercase.
     changedeaths = models.BigIntegerField(db_column='changeDeaths', blank=True, null=True)  # Field name made lowercase.
     movingaverage = models.FloatField(db_column='movingAverage', blank=True, null=True)  # Field name made lowercase.
-    movingaveragedeaths = models.FloatField(db_column='movingAverageDeaths')  # Field name made lowercase.
 
     class Meta:
         managed = False
