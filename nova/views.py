@@ -275,7 +275,7 @@ def index(request):
   
   form = FilterByCountyForm(request.POST or None)
 
-    
+  testtbl = tbl_fairfax_view()
 
 #  df = tbl_fairfax_view()
   args = {}
@@ -284,5 +284,6 @@ def index(request):
   args['filterby'] = filterby
   args['filterbycode'] = filterbycode
   args['currentpage'] = page
+  args['testtbl'] = testtbl
 
   return render(request, "nova.html", args )
