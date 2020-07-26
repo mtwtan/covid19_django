@@ -62,7 +62,7 @@
   <li><input id="btn_filter" type="button" value="Filter" class="btn btn-md btn-secondary" onclick="goSelectFilter({{ currentpage }})"></li>
   </ul>
 </form>
-
+  <p>7 mavg: 7 Days Moving Average</p>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -72,6 +72,8 @@
         <th>Deaths</th>
         <th>Daily Change</th>
         <th>Daily Change - Deaths</th>
+        <th>7 mavg - Cases</th>
+        <th>7 mavg - Deaths</th>
       </tr>
     </thead>
     {% for row_nova in tbl_nova %}
@@ -82,6 +84,8 @@
       <td>{{ row_nova.numdeaths }}</td>
       <td>{{ row_nova.change }}</td>
       <td>{{ row_nova.changedeaths }}</td>
+      <td>{{ movingaverage }}</td>
+      <td>{{ movingaveragedeaths }}</td>
     </tr>
     {% endfor %}
     <tr>
