@@ -13,7 +13,7 @@ matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 
-from testplot.models import Testcovid, DmvMovingAverage
+from nova.models import DmvMovingAverage
 import pandas as pd
 import numpy as np
 import matplotlib.dates as mdates
@@ -249,10 +249,10 @@ def tbl_fairfax_view():
   df_html = df_fairfax.to_html()
   return df_html
 
-def df_covid19():
-  df = pd.DataFrame(list(Testcovid.objects.using('data').all().values()))
-  df_html = df.to_html()
-  return df_html
+#def df_covid19():
+#  df = pd.DataFrame(list(Testcovid.objects.using('data').all().values()))
+#  df_html = df.to_html()
+#  return df_html
 
 def index(request):
   page = request.GET.get('page', 1)
