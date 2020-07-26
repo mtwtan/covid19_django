@@ -29,7 +29,7 @@ nova = DmvMovingAverage.objects.using('data').all().order_by('county', 'date').v
 
 df_nova = pd.DataFrame(list(nova))
 df_nova['date'] = pd.to_datetime(df_nova['date'])
-df_nova['movingaveragedeaths'] = pd.to_numeric(df_nova['movingaveragedeaths'])
+#df_nova['movingaveragedeaths'] = pd.to_numeric(df_nova['movingaveragedeaths'])
 df_index = df_nova.index
 num_rows = len(df_index)
 max_index = num_rows - 1
