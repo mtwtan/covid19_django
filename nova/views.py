@@ -213,7 +213,7 @@ def plt_nova_changedeath_view(request):
 def plt_nova_movingavg_deaths_view(request):
 
   fig, ax = plt.subplots()
-  ax.set_title('7 days Moving Average - Confirmed Cases')
+  ax.set_title('7 days Moving Average - Deaths')
   ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Fairfax'], label="Fairfax")
   ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'Arlington'], label="Arlington")
   ax.plot('date', 'movingaveragedeaths', data=df_nova.loc[df_nova['county'] == 'District of Columbia'], label="District of Columbia")
@@ -244,10 +244,10 @@ def plt_nova_movingavg_deaths_view(request):
   return response
 
 
-def tbl_fairfax_view():
-  df_fairfax = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().order_by('county','date').values()))
-  df_html = df_fairfax.to_html()
-  return df_html
+#def tbl_fairfax_view():
+#  df_fairfax = pd.DataFrame(list(DmvMovingAverage.objects.using('data').all().order_by('county','date').values()))
+#  df_html = df_fairfax.to_html()
+#  return df_html
 
 #def df_covid19():
 #  df = pd.DataFrame(list(Testcovid.objects.using('data').all().values()))
@@ -275,7 +275,7 @@ def index(request):
   
   form = FilterByCountyForm(request.POST or None)
 
-  testtbl = tbl_fairfax_view()
+#  testtbl = tbl_fairfax_view()
 
 #  df = tbl_fairfax_view()
   args = {}
@@ -284,6 +284,5 @@ def index(request):
   args['filterby'] = filterby
   args['filterbycode'] = filterbycode
   args['currentpage'] = page
-  args['testtbl'] = testtbl
 
   return render(request, "nova.html", args )
